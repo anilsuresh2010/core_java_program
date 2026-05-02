@@ -5,8 +5,8 @@ import java.util.stream.IntStream;
 
 public class MergeTwoArrayAlternativally {
     public static void main(String[] args) {
-        Integer [] arr1 = {2,4,6,8,9};
-        Integer [] arr2 = {2,4,6,7,5,1};
+        Integer [] arr1 = {2,4,6,8,10,11,12};
+        Integer [] arr2 = {3,5,7,9,11,15,45};
         int length = arr1.length+arr2.length;
         int[] mergeArray =IntStream.range(0,length)
                 .flatMap(index->IntStream.concat
@@ -15,5 +15,6 @@ public class MergeTwoArrayAlternativally {
                 )).distinct().toArray();
 
      System.out.println(Arrays.toString(mergeArray));
+
     }
 }

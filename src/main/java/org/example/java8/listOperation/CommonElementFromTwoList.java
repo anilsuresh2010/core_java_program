@@ -6,13 +6,15 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class CommonElementFromTwoList {
+    public static List<String> findCommon(List<String> list1, List<String> list2){
+        return list1.stream().filter(list2::contains).distinct().collect(Collectors.toList());
+    }
     public static void main(String[] args) {
-        List<String> list1 = Arrays.asList("anil","vimal","rama");
+        List<String> list1 = Arrays.asList("anil","vimal","rama","chandresh");
         List<String> list2 =Arrays.asList("chandresh","Vimal","ram");
-        List commonList=list1.stream().map(String::toUpperCase)
-                .filter(name->list2.stream().map(String::toUpperCase).collect(Collectors.toSet()).contains(name)).toList();
+        System.out.println("before : "+list1);
+       List<String> commonList = CommonElementFromTwoList.findCommon(list1,list2);
         System.out.println(commonList);
-        List<String> set1 =list1.stream().map(String::toUpperCase).filter(name->list2.stream().map(String::toUpperCase).collect(Collectors.toSet()).contains(name)).toList();
-        System.out.println(set1);
+
     }
 }

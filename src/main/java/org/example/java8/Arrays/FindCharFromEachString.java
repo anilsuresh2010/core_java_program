@@ -2,21 +2,19 @@ package org.example.java8.Arrays;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FindCharFromEachString {
-    public static void main(String[] args) {String[] strArray = {"aabca", "bcdbd", "aaccde", "aauoeed"};
-        List<String> collect = Arrays.stream(strArray).collect(Collectors.toList());
+    public static void main(String[] args) {
 
+        List<Integer> evens  = Arrays.asList(2, 4, 6);
+        List<Integer> odds   = Arrays.asList(1, 3, 5);
+        List<Integer> primes = Arrays.asList(2, 3, 5, 7);
 
-        collect.stream().filter(st->st.startsWith("aa")).forEach(s -> {
-            List<Character> list = new ArrayList();
-            s.chars().mapToObj(ch->(char)ch).forEach(list::add);
-            System.out.println(s+" "+s.length());
+        List<List<Integer>> listOfLists = Arrays.asList(evens, odds, primes);
 
-        });
+        List<Integer> collect = listOfLists.stream().flatMap(list -> list.stream()).collect(Collectors.toList());
 
-
-
-
+        System.out.println(collect);
     }
 }

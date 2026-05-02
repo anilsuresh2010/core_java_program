@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 public class chacheExecuter {
     public static void main(String[] args) {
         ExecutorService executer =Executors.newFixedThreadPool(4);
-        for (int i = 0;i<100;i++){
+        for (int i = 0;i<20;i++){
             int taskId = i;
             executer.submit(()->{
                 System.out.println("Task   "+taskId+ "  is running on :"+Thread.currentThread().getName());
