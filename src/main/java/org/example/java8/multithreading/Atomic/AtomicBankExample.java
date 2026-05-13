@@ -10,7 +10,7 @@ public class AtomicBankExample {
 
     public static String processTransaction(String accountNumber, int amount){
         int txnSeq = ++desiCounter;
-        return "Account Number "+accountNumber+" Amount "+amount+" Sequence "+txnSeq;
+        return "Account Number "+accountNumber+" Amount "+amount+" Sequence "+counter.getAndIncrement();
     }
     public static void main(String[] args) throws InterruptedException {
         List<Thread> threads = new ArrayList<>(3);
